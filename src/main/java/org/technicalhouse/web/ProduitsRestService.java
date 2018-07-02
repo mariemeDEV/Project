@@ -20,20 +20,10 @@ public class ProduitsRestService {
 	ProduitRepository produitRepository;
 	
 	@RequestMapping(value="/produits",method=RequestMethod.GET)
-	public Map<String,Produit> getProduits(){
-		Map<String,Produit> model = new HashMap<String,Produit>();
-		model.put("produits", (Produit) produitRepository.findAll());
-		return model;
+	public List<Produit> getProduits(){
+		return produitRepository.findAll();
 	}
 	
-	/*@Autowired
-	private ProductRepository productRepo;
-
-	@RequestMapping("/all-products", method = RequestMethod.GET)
-	public Map<String,Object> home() {
-	    Map<String,Object> model = new HashMap<String,Object>();
-	    model.put("products", productRepo.findAll());
-	    return model;
-	}*/
+	
 	
 }
