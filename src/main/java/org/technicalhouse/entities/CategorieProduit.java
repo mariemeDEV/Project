@@ -2,6 +2,8 @@ package org.technicalhouse.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,17 +23,18 @@ public class CategorieProduit {
 	private int codeCategorie;
 	private String libelleCategorie;
 	private int quantiteProdEnStock;
-	private static JSONObject obj = new JSONObject();
-
-	@OneToMany
-    @OrderBy("libelleProduit ASC")
-	@JoinColumn(name = "IdCategorie")
-	@JsonIgnore
+	
+    @OneToMany(mappedBy = "categorieProduit", cascade = CascadeType.ALL)
 	private List<Produit> produits = new ArrayList<>();
 
 	public CategorieProduit() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public CategorieProduit(int codeCategorie) {
+		super();
+		this.codeCategorie = codeCategorie;
 	}
 
 	public CategorieProduit(int codeCategorie, String libelleCategorie, int quantiteProdEnStock) {

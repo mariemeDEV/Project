@@ -23,7 +23,7 @@ import org.technicalhouse.entities.Produit;
 public class P1TechnicalHouseApplication implements CommandLineRunner{
 //Two repositories cannot be instantiated at the same time
 	@Autowired
-	 private ProduitRepository produitRepository;
+	// private ProduitRepository produitRepository;
     //private ClientRepository clientRepository;
    //private CategorieRepository categorieProduitRepository;
   //private ProduitRepository produitRepository;
@@ -39,19 +39,23 @@ public class P1TechnicalHouseApplication implements CommandLineRunner{
 	public void run(String... arg0) throws Exception {
 		 System.out.print("ok");
 		 
-	  /*   categorieProduitRepository.save(new CategorieProduit(0,"Bacs empilables", 1020));
+	     /*categorieProduitRepository.save(new CategorieProduit(0,"Bacs empilables", 1020));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Bacs amboitables", 1075));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Eprouvettes", 210));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Becher", 340));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Broc doseur", 279));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Cuillère doseuse sphérique", 509));
 		 categorieProduitRepository.save(new CategorieProduit(0,"Cuillère doseuse", 500));*/
+/*CategorieProduit c1 = new CategorieProduit(2);
+CategorieProduit c2 = new CategorieProduit(3);
+CategorieProduit c3 = new CategorieProduit(4);*/
 
-		 produitRepository.save(new Produit(0,"fiole 15mm",10,15000,15000*10));
-		 produitRepository.save(new Produit(0,"tube 10mm",60,20000,60*20000));
-		 produitRepository.save(new Produit(0,"seringle 15mm",10,10000,10*10000));
+		/* produitRepository.save(new Produit(0,"Bac amboitable 15mm",10,15000,15000*10,c1));
+		 produitRepository.save(new Produit(0,"Becher10mm",60,20000,60*20000,c2));
+		 produitRepository.save(new Produit(0,"Becher 15mm",10,10000,10*10000,c3));
+		 produitRepository.save(new Produit(0,"Becher 45mm",10,10000,10*20000,c3));*/
 	
-		/* categories = categorieProduitRepository.findAll();
+		/* List<CategorieProduit> categories = categorieProduitRepository.findAll();
 		 categories.forEach(c->{
 			 System.out.println(c.getLibelleCategorie());
 		 });*/

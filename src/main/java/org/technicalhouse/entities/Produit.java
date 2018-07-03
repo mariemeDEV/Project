@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produit {
@@ -15,16 +17,25 @@ public class Produit {
 	private int qteEnStock;
 	private float prixUnitaire;
 	private float prixTotal;
-
-	
-	public Produit(int code_produit, String libelleProduit, int qteEnStock, float prixUnitaire, float prixTotal) {
+	@ManyToOne
+    @JoinColumn(name = "IdCategorie")
+	private CategorieProduit categorieProduit;
+   
+	public Produit() {
 		super();
-		this.code_produit   = code_produit;
+	}
+
+	public Produit(int code_produit, String libelleProduit, int qteEnStock, float prixUnitaire, float prixTotal,
+		CategorieProduit categorieProduit) {
+		super();
+		this.code_produit = code_produit;
 		this.libelleProduit = libelleProduit;
-		this.qteEnStock     = qteEnStock;
+		this.qteEnStock = qteEnStock;
 		this.prixUnitaire = prixUnitaire;
 		this.prixTotal = prixTotal;
+		this.categorieProduit = categorieProduit;
 	}
+
 	public int getCode_produit() {
 		return code_produit;
 	}
@@ -55,6 +66,13 @@ public class Produit {
 	public void setQteEnStock(int qteEnStock) {
 		this.qteEnStock = qteEnStock;
 	}
+	public CategorieProduit getCategorieProduit() {
+		return categorieProduit;
+	}
+	public void setCategorieProduit(CategorieProduit categorieProduit) {
+		this.categorieProduit = categorieProduit;
+	}
+	
 
 
 	
